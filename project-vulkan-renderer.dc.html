@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+<style>
+  body{margin:0}
+  a{color:var(--color-primary);text-decoration:none}
+  a:hover{color:var(--color-primary-hover);text-decoration:underline}
+</style>
+<link rel="stylesheet" href="./ds/styles.css"></link>
+<script>
+(function loadDsBundle(){
+  if (!window.React) { setTimeout(loadDsBundle, 10); return; }
+  var s = document.createElement('script');
+  s.src = './ds/_ds_bundle.js';
+  document.head.appendChild(s);
+})();
+</script>
+<script src="./image-slot.js"></script>
+</helmet>
+
+<x-import component-from-global-scope="CapmareDS.ThemeProvider" theme="dark" hint-size="100%,100%">
+<div style="font-family:var(--font-sans);background:var(--color-surface-2);color:var(--color-text-primary);min-height:100vh">
+
+  <nav style="position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 32px;background:color-mix(in oklab, var(--color-surface-2) 92%, transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--color-border)">
+    <a href="./Oleksandr Hlebov Portfolio.dc.html" style="font-family:var(--font-mono);font-size:14px;color:var(--color-text-secondary)">← Oleksandr Hlebov</a>
+  </nav>
+
+  <div style="max-width:760px;margin:0 auto;padding:56px 32px 80px">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:16px">
+      <h1 style="margin:0;font-size:34px;font-weight:700">Improved Vulkan Renderer</h1>
+      <span style="font-family:var(--font-mono);font-size:13px;color:var(--color-text-secondary)">Jun 2025 · in progress</span>
+    </div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:28px">
+      <x-import component-from-global-scope="CapmareDS.Badge" tone="neutral" hint-size="auto,22">Vulkan</x-import>
+      <x-import component-from-global-scope="CapmareDS.Badge" tone="neutral" hint-size="auto,22">C++</x-import>
+      <x-import component-from-global-scope="CapmareDS.Badge" tone="neutral" hint-size="auto,22">Graphics</x-import>
+    </div>
+
+    <img src="./assets/renderer-directional-light.png" alt="Lit scene, directional light" style="width:100%;border-radius:12px;margin-bottom:32px;display:block">
+
+    <div style="display:flex;flex-direction:column;gap:16px;font-size:15px;line-height:1.65;color:var(--color-text-secondary)">
+      <p style="margin:0">Developed on his own terms as an improved version of a renderer made for college, learning from mistakes made there.</p>
+      <p style="margin:0">Uses his own vulkan-classes library, fetched automatically through CMake. Intended for future use as a base project in further Vulkan research topics.</p>
+    </div>
+
+    <h2 style="font-size:18px;font-weight:700;margin:36px 0 16px">Render passes</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
+      <figure style="margin:0">
+        <img src="./assets/renderer-gbuffer-normals-material.png" alt="G-buffer: normals and material IDs" style="width:100%;border-radius:8px;display:block">
+        <figcaption style="font-family:var(--font-mono);font-size:12px;color:var(--color-text-secondary);margin-top:6px">G-buffer — normals / material</figcaption>
+      </figure>
+      <figure style="margin:0">
+        <img src="./assets/renderer-normals.png" alt="Normal map debug view" style="width:100%;border-radius:8px;display:block">
+        <figcaption style="font-family:var(--font-mono);font-size:12px;color:var(--color-text-secondary);margin-top:6px">Normals</figcaption>
+      </figure>
+      <figure style="margin:0">
+        <img src="./assets/renderer-metalness.png" alt="Metalness debug view" style="width:100%;border-radius:8px;display:block">
+        <figcaption style="font-family:var(--font-mono);font-size:12px;color:var(--color-text-secondary);margin-top:6px">Metalness</figcaption>
+      </figure>
+      <figure style="margin:0">
+        <img src="./assets/renderer-roughness.png" alt="Roughness debug view" style="width:100%;border-radius:8px;display:block">
+        <figcaption style="font-family:var(--font-mono);font-size:12px;color:var(--color-text-secondary);margin-top:6px">Roughness</figcaption>
+      </figure>
+      <figure style="margin:0">
+        <img src="./assets/renderer-point-light.png" alt="Point light pass" style="width:100%;border-radius:8px;display:block">
+        <figcaption style="font-family:var(--font-mono);font-size:12px;color:var(--color-text-secondary);margin-top:6px">Point light pass</figcaption>
+      </figure>
+      <figure style="margin:0">
+        <img src="./assets/renderer-directional-light.png" alt="Directional light pass" style="width:100%;border-radius:8px;display:block">
+        <figcaption style="font-family:var(--font-mono);font-size:12px;color:var(--color-text-secondary);margin-top:6px">Directional light pass</figcaption>
+      </figure>
+    </div>
+
+    <div style="margin-top:36px">
+      <a href="https://github.com/OleksandrHlebov/VulkanRenderer" target="_blank" rel="noopener"><x-import component-from-global-scope="CapmareDS.Button" variant="primary" hint-size="auto,40">view on github</x-import></a>
+    </div>
+  </div>
+
+  <footer style="max-width:760px;margin:0 auto;padding:32px 32px 56px;border-top:1px solid var(--color-border)">
+    <p style="margin:0;font-size:12px;color:var(--color-text-secondary)">© 2026 Oleksandr Hlebov</p>
+  </footer>
+
+</div>
+</x-import>
+
+</x-dc>
+</body>
+</html>

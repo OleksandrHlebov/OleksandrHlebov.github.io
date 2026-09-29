@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+<style>
+  body{margin:0}
+  a{color:var(--color-primary);text-decoration:none}
+  a:hover{color:var(--color-primary-hover);text-decoration:underline}
+</style>
+<link rel="stylesheet" href="./ds/styles.css"></link>
+<script>
+(function loadDsBundle(){
+  if (!window.React) { setTimeout(loadDsBundle, 10); return; }
+  var s = document.createElement('script');
+  s.src = './ds/_ds_bundle.js';
+  document.head.appendChild(s);
+})();
+</script>
+<script src="./image-slot.js"></script>
+</helmet>
+
+<x-import component-from-global-scope="CapmareDS.ThemeProvider" theme="dark" hint-size="100%,100%">
+<div style="font-family:var(--font-sans);background:var(--color-surface-2);color:var(--color-text-primary);min-height:100vh">
+
+  <nav style="position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 32px;background:color-mix(in oklab, var(--color-surface-2) 92%, transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--color-border)">
+    <a href="./Oleksandr Hlebov Portfolio.dc.html" style="font-family:var(--font-mono);font-size:14px;color:var(--color-text-secondary)">← Oleksandr Hlebov</a>
+  </nav>
+
+  <div style="max-width:760px;margin:0 auto;padding:56px 32px 80px">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:16px">
+      <h1 style="margin:0;font-size:34px;font-weight:700">vulkan-classes</h1>
+      <span style="font-family:var(--font-mono);font-size:13px;color:var(--color-text-secondary)">Jun 2025 · in progress</span>
+    </div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:28px">
+      <x-import component-from-global-scope="CapmareDS.Badge" tone="neutral" hint-size="auto,22">Vulkan</x-import>
+      <x-import component-from-global-scope="CapmareDS.Badge" tone="neutral" hint-size="auto,22">C++20</x-import>
+      <x-import component-from-global-scope="CapmareDS.Badge" tone="neutral" hint-size="auto,22">Library</x-import>
+    </div>
+
+        <div style="display:flex;flex-direction:column;gap:16px;font-size:15px;line-height:1.65;color:var(--color-text-secondary)">
+      <p style="margin:0">A Vulkan API wrapper library built using the experience acquired from earlier projects, aiming to make it a much more polished project. Created using modern C++20.</p>
+      <p style="margin:0">Utilizes commonly used Vulkan libraries: vk-bootstrap and VulkanMemoryAllocator.</p>
+      <p style="margin:0">Uses a builder pattern for creation of Vulkan handles, and manages the lifetime of objects automatically using deletion queues.</p>
+    </div>
+
+    <div style="margin-top:36px">
+      <a href="https://github.com/OleksandrHlebov/vulkan-classes" target="_blank" rel="noopener"><x-import component-from-global-scope="CapmareDS.Button" variant="primary" hint-size="auto,40">view on github</x-import></a>
+    </div>
+  </div>
+
+  <footer style="max-width:760px;margin:0 auto;padding:32px 32px 56px;border-top:1px solid var(--color-border)">
+    <p style="margin:0;font-size:12px;color:var(--color-text-secondary)">© 2026 Oleksandr Hlebov</p>
+  </footer>
+
+</div>
+</x-import>
+
+</x-dc>
+</body>
+</html>

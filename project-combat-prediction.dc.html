@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+<style>
+  body{margin:0}
+  a{color:var(--color-primary);text-decoration:none}
+  a:hover{color:var(--color-primary-hover);text-decoration:underline}
+</style>
+<link rel="stylesheet" href="./ds/styles.css"></link>
+<script>
+(function loadDsBundle(){
+  if (!window.React) { setTimeout(loadDsBundle, 10); return; }
+  var s = document.createElement('script');
+  s.src = './ds/_ds_bundle.js';
+  document.head.appendChild(s);
+})();
+</script>
+<script src="./image-slot.js"></script>
+</helmet>
+
+<x-import component-from-global-scope="CapmareDS.ThemeProvider" theme="dark" hint-size="100%,100%">
+<div style="font-family:var(--font-sans);background:var(--color-surface-2);color:var(--color-text-primary);min-height:100vh">
+
+  <nav style="position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 32px;background:color-mix(in oklab, var(--color-surface-2) 92%, transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--color-border)">
+    <a href="./Oleksandr Hlebov Portfolio.dc.html" style="font-family:var(--font-mono);font-size:14px;color:var(--color-text-secondary)">← Oleksandr Hlebov</a>
+  </nav>
+
+  <div style="max-width:760px;margin:0 auto;padding:56px 32px 80px">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:16px">
+      <h1 style="margin:0;font-size:34px;font-weight:700">Combat Outcome Prediction</h1>
+      <span style="font-family:var(--font-mono);font-size:13px;color:var(--color-text-secondary)">Feb–Jun 2025</span>
+    </div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:28px">
+      <x-import component-from-global-scope="CapmareDS.Badge" tone="neutral" hint-size="auto,22">C++</x-import>
+      <x-import component-from-global-scope="CapmareDS.Badge" tone="neutral" hint-size="auto,22">Machine Learning</x-import>
+      <x-import component-from-global-scope="CapmareDS.Badge" tone="neutral" hint-size="auto,22">Research</x-import>
+    </div>
+
+        <div style="display:flex;flex-direction:column;gap:16px;font-size:15px;line-height:1.65;color:var(--color-text-secondary)">
+      <p style="margin:0">Individual research project implementing and abstracting a Logistic Regression model using modern C++, to try and predict the outcome of a battle.</p>
+      <p style="margin:0">Uses mathematical formulas and troop attributes to make an educated guess on which army would be victorious.</p>
+    </div>
+
+    <div style="margin-top:36px">
+      <a href="https://github.com/OleksandrHlebov/Combat-Outcome-Prediction-Research" target="_blank" rel="noopener"><x-import component-from-global-scope="CapmareDS.Button" variant="primary" hint-size="auto,40">view on github</x-import></a>
+    </div>
+  </div>
+
+  <footer style="max-width:760px;margin:0 auto;padding:32px 32px 56px;border-top:1px solid var(--color-border)">
+    <p style="margin:0;font-size:12px;color:var(--color-text-secondary)">© 2026 Oleksandr Hlebov</p>
+  </footer>
+
+</div>
+</x-import>
+
+</x-dc>
+</body>
+</html>

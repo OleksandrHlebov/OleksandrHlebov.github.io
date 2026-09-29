@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+<style>
+  body{margin:0}
+  a{color:var(--color-primary);text-decoration:none}
+  a:hover{color:var(--color-primary-hover);text-decoration:underline}
+</style>
+<link rel="stylesheet" href="./ds/styles.css"></link>
+<script>
+(function loadDsBundle(){
+  if (!window.React) { setTimeout(loadDsBundle, 10); return; }
+  var s = document.createElement('script');
+  s.src = './ds/_ds_bundle.js';
+  document.head.appendChild(s);
+})();
+</script>
+<script src="./image-slot.js"></script>
+</helmet>
+
+<x-import component-from-global-scope="CapmareDS.ThemeProvider" theme="{{ theme }}" hint-size="100%,100%">
+<div style="font-family:var(--font-sans);background:var(--color-surface-2);color:var(--color-text-primary);min-height:100vh">
+
+  <nav style="position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 32px;background:color-mix(in oklab, var(--color-surface-2) 92%, transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--color-border)">
+    <span style="font-family:var(--font-mono);font-size:14px;letter-spacing:0.02em;color:var(--color-text-primary)">Oleksandr Hlebov</span>
+    <div style="display:flex;gap:20px;font-family:var(--font-mono);font-size:13px;flex-wrap:wrap">
+      <a href="#about" style="color:var(--color-text-secondary)">about</a>
+      <a href="#projects" style="color:var(--color-text-secondary)">projects</a>
+      <a href="#skills" style="color:var(--color-text-secondary)">skills</a>
+      <a href="#contact" style="color:var(--color-text-secondary)">contact</a>
+    </div>
+  </nav>
+
+  <header id="about" style="max-width:960px;margin:0 auto;padding:72px 32px 56px">
+    <div style="display:flex;flex-direction:column;gap:14px;min-width:260px;flex:1">
+      <x-import component-from-global-scope="CapmareDS.Badge" tone="outline" hint-size="auto,24">Belgium / Game Developer</x-import>
+      <h1 style="margin:0;font-size:40px;font-weight:700;line-height:1.15">Oleksandr Hlebov</h1>
+      <p style="margin:0;font-size:16px;color:var(--color-text-secondary);max-width:520px;line-height:1.5">C++ programmer and game developer with a passion for graphics programming. Based in Deinze, Belgium.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:6px">
+        <a href="mailto:oleksandr.hlebov@gmail.com"><x-import component-from-global-scope="CapmareDS.Button" variant="primary" hint-size="auto,40">email</x-import></a>
+        <a href="https://github.com/OleksandrHlebov" target="_blank" rel="noopener"><x-import component-from-global-scope="CapmareDS.Button" variant="secondary" hint-size="auto,40">github</x-import></a>
+        <a href="https://itch.io/profile/sovveira" target="_blank" rel="noopener"><x-import component-from-global-scope="CapmareDS.Button" variant="secondary" hint-size="auto,40">itch.io</x-import></a>
+        <a href="./assets/Oleksandr-Hlebov-Resume.docx" download><x-import component-from-global-scope="CapmareDS.Button" variant="ghost" hint-size="auto,40">download resume</x-import></a>
+      </div>
+    </div>
+  </header>
+
+  <section id="education" style="max-width:960px;margin:0 auto;padding:0 32px 56px">
+    <x-import component-from-global-scope="CapmareDS.Card" padding="lg" hint-size="100%,100">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px">
+        <div>
+          <div style="font-family:var(--font-mono);font-size:12px;text-transform:uppercase;letter-spacing:0.06em;color:var(--color-text-secondary);margin-bottom:6px">Education</div>
+          <div style="font-size:17px;font-weight:700">Howest, Belgium</div>
+          <div style="font-size:14px;color:var(--color-text-secondary);margin-top:2px">Bachelor Digital Arts &amp; Entertainment, Game Development</div>
+        </div>
+        <span style="font-family:var(--font-mono);font-size:13px;color:var(--color-text-secondary)">Jun 2026</span>
+      </div>
+    </x-import>
+  </section>
+
+  <section id="projects" style="max-width:960px;margin:0 auto;padding:0 32px 64px">
+    <h2 style="font-size:22px;margin:0 0 24px;font-weight:700">Projects</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px">
+
+      <x-import component-from-global-scope="CapmareDS.Card" padding="lg" elevated="{{ elevated }}" style="display:flex;flex-direction:column;gap:14px" hint-size="100%,420">
+        <img src="./assets/raccnrun-2.gif" alt="RaccNRun gameplay" style="width:100%;height:160px;object-fit:cover;border-radius:10px;display:block">
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">
+            <span style="font-size:17px;font-weight:700">RaccNRun</span>
+            <span style="font-family:var(--font-mono);font-size:12px;color:var(--color-text-secondary)">Feb–Jun 2025</span>
+          </div>
+          <p style="margin:8px 0 0;font-size:14px;color:var(--color-text-secondary);line-height:1.5">Team of 6, developed in Unreal Engine 5. Worked on core gameplay: throwing objects and world interactions, collection zones, fragile objects using the UE5 Chaos destruction system, custom physics overrides for character/object interaction, and animation programming (blueprints, blending, montages, C++ multicast-delegate triggers).</p>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <x-import component-from-global-scope="CapmareDS.Badge" tone="neutral" hint-size="auto,22">Unreal Engine 5</x-import>
+          <x-import component-from-global-scope="CapmareDS.Badge" tone="neutral" hint-size="auto,22">C++</x-import>
+          <x-import component-from-global-scope="CapmareDS.Badge" tone="neutral" hint-size="auto,22">Team of 6</x-import>
+        </div>
+        <a href="./project-raccnrun.dc.html" style="margin-top:auto"><x-import component-from-global-scope="CapmareDS.Button" variant="secondary" size="sm" hint-size="auto,32">view details</x-import></a>
+      </x-import>
+
+      <x-import component-from-global-scope="CapmareDS.Card" padding="lg" elevated="{{ elevated }}" style="display:flex;flex-direction:column;gap:14px" hint-size="100%,420">
+        <img src="./assets/librarian-2.png" alt="The Librarian screenshot" style="width:100%;height:160px;object-fit:cover;border-radius:10px;display:block">
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">
+            <span style="font-size:17px;font-weight:700">The Librarian</span>
+            <span style="font-family:var(--font-mono);font-size:12px;color:var(--color-text-secondary)">Nov–Dec 2024</span>
+          </div>
+          <p style="margin:8px 0 0;font-size:14px;color:var(--color-text-secondary);line-height:1.5">Team of 8 in Unreal Engine 5, each member assigned their own tasks. Implemented puzzles, point-and-click movement and environment interactions, "possessing" different playable entities, and worked with UE5 cinematic cameras.</p>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <x-import component-from-global-scope="CapmareDS.Badge" tone="neutral" hint-size="auto,22">Unreal Engine 5</x-import>
+          <x-import component-from-global-scope="CapmareDS.Badge" tone="neutral" hint-size="auto,22">Puzzle</x-import>
+          <x-import component-from-global-scope="CapmareDS.Badge" tone="neutral" hint-size="auto,22">Team of 8</x-import>
+        </div>
+        <a href="./project-librarian.dc.html" style="margin-top:auto"><x-import component-from-global-scope="CapmareDS.Button" variant="secondary" size="sm" hint-size="auto,32">view details</x-import></a>
+      </x-import>
+
+      <x-import component-from-global-scope="CapmareDS.Card" padding="lg" elevated="{{ elevated }}" style="display:flex;flex-direction:column;gap:14px" hint-size="100%,420">
+        <img src="./assets/renderer-directional-light.png" alt="Improved Vulkan Renderer screenshot" style="width:100%;height:160px;object-fit:cover;border-radius:10px;display:block">
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">
+            <span style="font-size:17px;font-weight:700">Improved Vulkan Renderer</span>
+            <span style="font-family:var(--font-mono);font-size:12px;color:var(--color-text-secondary)">Jun 2025</span>
+          </div>
+          <p style="margin:8px 0 0;font-size:14px;color:var(--color-text-secondary);line-height:1.5">An improved version of a renderer built for college, learning from earlier mistakes. Built on his own vulkan-classes library, fetched automatically through CMake. Intended as a base project for further Vulkan research, with physics-based sky rendering and volumetric clouds planned.</p>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <x-import component-from-global-scope="CapmareDS.Badge" tone="neutral" hint-size="auto,22">Vulkan</x-import>
+          <x-import component-from-global-scope="CapmareDS.Badge" tone="neutral" hint-size="auto,22">C++</x-import>
+          <x-import component-from-global-scope="CapmareDS.Badge" tone="neutral" hint-size="auto,22">Graphics</x-import>
+        </div>
+        <a href="./project-vulkan-renderer.dc.html" style="margin-top:auto"><x-import component-from-global-scope="CapmareDS.Button" variant="secondary" size="sm" hint-size="auto,32">view details</x-import></a>
+      </x-import>
+
+      <x-import component-from-global-scope="CapmareDS.Card" padding="lg" elevated="{{ elevated }}" style="display:flex;flex-direction:column;gap:14px" hint-size="100%,420">
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">
+            <span style="font-size:17px;font-weight:700">vulkan-classes</span>
+            <span style="font-family:var(--font-mono);font-size:12px;color:var(--color-text-secondary)">Jun 2025</span>
+          </div>
+          <p style="margin:8px 0 0;font-size:14px;color:var(--color-text-secondary);line-height:1.5">A Vulkan API wrapper library built on his own terms using modern C++20, wrapping vk-bootstrap and VulkanMemoryAllocator. Uses a builder pattern for creating Vulkan handles and manages object lifetimes automatically with deletion queues.</p>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <x-import component-from-global-scope="CapmareDS.Badge" tone="neutral" hint-size="auto,22">Vulkan</x-import>
+          <x-import component-from-global-scope="CapmareDS.Badge" tone="neutral" hint-size="auto,22">C++20</x-import>
+          <x-import component-from-global-scope="CapmareDS.Badge" tone="neutral" hint-size="auto,22">Library</x-import>
+        </div>
+        <a href="./project-vulkan-classes.dc.html" style="margin-top:auto"><x-import component-from-global-scope="CapmareDS.Button" variant="secondary" size="sm" hint-size="auto,32">view details</x-import></a>
+      </x-import>
+
+      <x-import component-from-global-scope="CapmareDS.Card" padding="lg" elevated="{{ elevated }}" style="display:flex;flex-direction:column;gap:14px" hint-size="100%,420">
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">
+            <span style="font-size:17px;font-weight:700">Combat Outcome Prediction</span>
+            <span style="font-family:var(--font-mono);font-size:12px;color:var(--color-text-secondary)">Feb–Jun 2025</span>
+          </div>
+          <p style="margin:8px 0 0;font-size:14px;color:var(--color-text-secondary);line-height:1.5">Individual research implementing and abstracting a Logistic Regression model in modern C++, using mathematical formulas and troop attributes to make an educated guess on which army would win a battle.</p>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <x-import component-from-global-scope="CapmareDS.Badge" tone="neutral" hint-size="auto,22">C++</x-import>
+          <x-import component-from-global-scope="CapmareDS.Badge" tone="neutral" hint-size="auto,22">Machine Learning</x-import>
+          <x-import component-from-global-scope="CapmareDS.Badge" tone="neutral" hint-size="auto,22">Research</x-import>
+        </div>
+        <a href="./project-combat-prediction.dc.html" style="margin-top:auto"><x-import component-from-global-scope="CapmareDS.Button" variant="secondary" size="sm" hint-size="auto,32">view details</x-import></a>
+      </x-import>
+
+    </div>
+  </section>
+
+  <section id="skills" style="max-width:960px;margin:0 auto;padding:0 32px 64px">
+    <h2 style="font-size:22px;margin:0 0 24px;font-weight:700">Skills</h2>
+    <div style="display:flex;flex-direction:column;gap:20px">
+
+      <div>
+        <div style="font-family:var(--font-mono);font-size:12px;text-transform:uppercase;letter-spacing:0.06em;color:var(--color-text-secondary);margin-bottom:10px">Programming languages</div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <x-import component-from-global-scope="CapmareDS.Badge" tone="neutral" hint-size="auto,22">C++</x-import>
+          <x-import component-from-global-scope="CapmareDS.Badge" tone="neutral" hint-size="auto,22">C#</x-import>
+          <x-import component-from-global-scope="CapmareDS.Badge" tone="neutral" hint-size="auto,22">GLSL</x-import>
+          <x-import component-from-global-scope="CapmareDS.Badge" tone="neutral" hint-size="auto,22">HLSL</x-import>
+          <x-import component-from-global-scope="CapmareDS.Badge" tone="neutral" hint-size="auto,22">Lua</x-import>
+          <x-import component-from-global-scope="CapmareDS.Badge" tone="neutral" hint-size="auto,22">Python</x-import>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-family:var(--font-mono);font-size:12px;text-transform:uppercase;letter-spacing:0.06em;color:var(--color-text-secondary);margin-bottom:10px">APIs</div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <x-import component-from-global-scope="CapmareDS.Badge" tone="neutral" hint-size="auto,22">Vulkan API</x-import>
+          <x-import component-from-global-scope="CapmareDS.Badge" tone="neutral" hint-size="auto,22">DirectX</x-import>
+          <x-import component-from-global-scope="CapmareDS.Badge" tone="neutral" hint-size="auto,22">WIN32</x-import>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-family:var(--font-mono);font-size:12px;text-transform:uppercase;letter-spacing:0.06em;color:var(--color-text-secondary);margin-bottom:10px">Tools &amp; IDEs</div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <x-import component-from-global-scope="CapmareDS.Badge" tone="neutral" hint-size="auto,22">CLion</x-import>
+          <x-import component-from-global-scope="CapmareDS.Badge" tone="neutral" hint-size="auto,22">MSVS 2022</x-import>
+          <x-import component-from-global-scope="CapmareDS.Badge" tone="neutral" hint-size="auto,22">Nvidia Nsight</x-import>
+          <x-import component-from-global-scope="CapmareDS.Badge" tone="neutral" hint-size="auto,22">RenderDoc</x-import>
+          <x-import component-from-global-scope="CapmareDS.Badge" tone="neutral" hint-size="auto,22">Unreal Engine</x-import>
+          <x-import component-from-global-scope="CapmareDS.Badge" tone="neutral" hint-size="auto,22">Unity</x-import>
+          <x-import component-from-global-scope="CapmareDS.Badge" tone="neutral" hint-size="auto,22">CMake</x-import>
+          <x-import component-from-global-scope="CapmareDS.Badge" tone="neutral" hint-size="auto,22">Git</x-import>
+          <x-import component-from-global-scope="CapmareDS.Badge" tone="neutral" hint-size="auto,22">Perforce</x-import>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-family:var(--font-mono);font-size:12px;text-transform:uppercase;letter-spacing:0.06em;color:var(--color-text-secondary);margin-bottom:10px">Spoken languages</div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <x-import component-from-global-scope="CapmareDS.Badge" tone="outline" hint-size="auto,22">English — advanced</x-import>
+          <x-import component-from-global-scope="CapmareDS.Badge" tone="outline" hint-size="auto,22">Ukrainian — native</x-import>
+          <x-import component-from-global-scope="CapmareDS.Badge" tone="outline" hint-size="auto,22">Russian — native</x-import>
+          <x-import component-from-global-scope="CapmareDS.Badge" tone="outline" hint-size="auto,22">Dutch — beginner</x-import>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer id="contact" style="max-width:960px;margin:0 auto;padding:0 32px 56px;border-top:1px solid var(--color-border);padding-top:40px">
+    <h2 style="font-size:22px;margin:0 0 20px;font-weight:700">Contact</h2>
+    <div style="display:flex;gap:24px;flex-wrap:wrap;font-family:var(--font-mono);font-size:14px;margin-bottom:32px">
+      <a href="mailto:oleksandr.hlebov@gmail.com">oleksandr.hlebov@gmail.com</a>
+    </div>
+    <p style="margin:0;font-size:12px;color:var(--color-text-secondary)">© 2026 Oleksandr Hlebov</p>
+  </footer>
+
+</div>
+</x-import>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1200,&quot;height&quot;:900},&quot;theme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;dark&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;dark&quot;,&quot;light&quot;],&quot;section&quot;:&quot;Appearance&quot;},&quot;elevatedCards&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Appearance&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      theme: this.props.theme ?? "dark",
+      elevated: this.props.elevatedCards ?? false,
+    };
+  }
+}
+</script>
+</body>
+</html>
